@@ -1,0 +1,20 @@
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.login-card {
+  width: 25%;
+  height: 42%;
+  display: flex;
+}
+
+.login-form {
+  margin-top: 25px;
+}
+
+.card-footer{
+  align-self: flex-end;
+}
