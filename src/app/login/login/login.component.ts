@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ecom-login',
@@ -7,6 +7,20 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  emailFormControl = new FormControl('admin', [Validators.required, Validators.email]);
-  passwordFormControl = new FormControl('pass', [Validators.required, Validators.minLength(6)]);
+  loginForm: FormGroup = this.formBuilder.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  });
+
+  constructor(private formBuilder: FormBuilder) { }
+
+  onLogin() {
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+
+    console.log("Form Accepted!!!");
+
+  }
 }

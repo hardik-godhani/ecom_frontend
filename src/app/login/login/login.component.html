@@ -2,24 +2,24 @@
   <mat-card class="login-card">
     <mat-card-header>LOGIN</mat-card-header>
     <mat-card-content>
-      <form class="login-form">
+      <form class="login-form" [formGroup]="loginForm">
         <mat-form-field appearance="outline" class="form-field">
           <mat-label>Email</mat-label>
-          <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="loginForm.get('Email')?.hasError('email') && !loginForm.get('Email')?.hasError('required')">
             Please enter a valid email address
           </mat-error>
-          <mat-error *ngIf="emailFormControl.hasError('required')">
+          <mat-error *ngIf="loginForm.get('Email')?.hasError('required')">
             Email is <strong>required</strong>
           </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="form-field">
           <mat-label>Password</mat-label>
-          <input type="password" matInput [formControl]="passwordFormControl" placeholder="password">
-          <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+          <input type="password" matInput formControlName="password" placeholder="password">
+          <mat-error *ngIf="loginForm.get('password')?.hasError('minlength') && !loginForm.get('password')?.hasError('required')">
             Please enter at least 6 characters!
           </mat-error>
-          <mat-error *ngIf="passwordFormControl.hasError('required')">
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
             Password is <strong>required</strong>
           </mat-error>
         </mat-form-field>
@@ -27,7 +27,7 @@
     </mat-card-content>
     <mat-card-footer class="card-footer">
       <button mat-button>Register</button>
-      <button mat-button>Login</button>
+      <button mat-button (click)="onLogin()">Login</button>
     </mat-card-footer>
   </mat-card>
 </div>
