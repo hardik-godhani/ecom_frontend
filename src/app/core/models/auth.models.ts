@@ -6,5 +6,7 @@ export class LoginData {
 export class RegisterData {
   email: string = '';
   password: string = '';
-  name: string = '';
+  fname: string = '';
+  lname: string = '';
+  phone: string = '';
 }

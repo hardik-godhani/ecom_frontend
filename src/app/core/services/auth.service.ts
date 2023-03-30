@@ -17,7 +17,7 @@ export class AuthService {
     return this.http.post( Environment.url + '/auth/login', payload) as Observable<APIResponse<User>>;
   }
 
-  register(payload: RegisterData) {
-    return this.http.post( Environment.url + '/auth/register', payload);
+  register(payload: RegisterData): Observable<APIResponse<null>> {
+    return this.http.post( Environment.url + '/auth/register', payload) as Observable<APIResponse<null>>;
   }
 }

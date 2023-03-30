@@ -15,7 +15,6 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    debugger
     let headers = request.headers;
     const userData = this.localStore.getUserData();
     if (userData && userData.token) {
