@@ -31,12 +31,10 @@ export class LoginComponent {
     loginData.password = this.loginForm.get('password')?.value;
 
     this.authService.login(loginData).subscribe((res: APIResponse<User>) => {
-      if (res.status == "SUCCESS") {
+      if (res.status == "SUCCESS" && res.data) {
         this.localStore.setUserData(res.data);
         this.router.navigateByUrl('');
       }
-    }, (err) => {
-
     })
 
   }
