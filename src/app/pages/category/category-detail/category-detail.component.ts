@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./category-detail.component.scss']
 })
 export class CategoryDetailComponent {
-
+   
 }

@@ -13,7 +13,7 @@ import { of } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-fdescribe('LoginComponent', () => {
+describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let authService: AuthService;

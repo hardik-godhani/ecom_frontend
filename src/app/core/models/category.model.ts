@@ -5,9 +5,9 @@ export class CategoryData {
 export interface Category {
   id: number;
   category: string;
-  isDeleted: boolean;
-  createdAt: string;
-  createdBy: number;
-  updatedAt: string;
-  updatedBy: number;
+  isDeleted?: boolean;
+  createdAt?: string;
+  createdBy?: number;
+  updatedAt?: string;
+  updatedBy?: number;
 }

@@ -17,16 +17,15 @@ export class CategoryComponent {
   }
 
   listCategory() {
-
     this.categoryService.getCategoryList().subscribe((res: APIResponse<Category[]>) => {
       if (res.status == "SUCCESS" && res.data) {
         this.categories = res.data;
       }
-    }, (err) => {
-
     })
+  };
 
-  }
-
+onCategoryDetail(category: Category) {
+  this.router.navigateByUrl("/category/" + category.id);
+}
 
 }

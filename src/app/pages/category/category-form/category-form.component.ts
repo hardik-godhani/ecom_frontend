@@ -30,9 +30,8 @@ export class CategoryFormComponent {
       if (res.status == "SUCCESS") {
         this.router.navigateByUrl('category');
       }
-    }, (err) => {
-
-    })
+    }
+    )
 
   }
 
