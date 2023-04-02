@@ -19,6 +19,7 @@ import { CategoryComponent } from './category.component';
       declarations: [CategoryComponent],
       providers: [
         CategoryService,
+        { provide: Router, useValue: {navigateByUrl: jasmine.createSpy("navigateByUrl")} }
       ]
     })
       .compileComponents();
@@ -26,6 +27,7 @@ import { CategoryComponent } from './category.component';
     fixture = TestBed.createComponent(CategoryComponent);
     component = fixture.componentInstance;
     categoryService = TestBed.inject(CategoryService);
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -39,5 +41,11 @@ import { CategoryComponent } from './category.component';
     component.listCategory();
     expect(component.categories).toEqual(mockCategory);
     expect(categoryService.getCategoryList).toHaveBeenCalled();
+  })
+
+  it("should call category detail page", () => {
+    const mockCategory: Category = { id: 1, category: "cakes"};
+    component.onCategoryDetail(mockCategory);
+    expect(router.navigateByUrl).toHaveBeenCalledWith("/category/" + mockCategory.id);
   })
 });

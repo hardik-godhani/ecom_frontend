@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  registerForm: FormGroup = this.formBuilder.group ({
+  registerForm: FormGroup = this.formBuilder.group({
     fname: ['', [Validators.required]],
     lname: ['', [Validators.required]],
     phone: ['', [Validators.minLength(10), Validators.maxLength(10)]],
@@ -19,7 +19,7 @@ export class RegisterComponent {
     password: ['', [Validators.required, Validators.minLength(6)]]
   })
 
-  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) { }
 
 
   onRegister() {
@@ -33,16 +33,12 @@ export class RegisterComponent {
     registerData.password = this.registerForm.get('password')?.value;
     registerData.fname = this.registerForm.get('fname')?.value;
     registerData.lname = this.registerForm.get('lname')?.value;
-    registerData.phone = this.registerForm.get('phone')?.value; 
+    registerData.phone = this.registerForm.get('phone')?.value;
 
     this.authService.register(registerData).subscribe((res: APIResponse<null>) => {
       if (res.status == "SUCCESS") {
         this.router.navigateByUrl('/login');
       }
-    }, (err) => {
-
     })
-
   }
-  
 }

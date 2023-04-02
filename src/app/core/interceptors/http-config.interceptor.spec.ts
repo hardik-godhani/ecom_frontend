@@ -7,7 +7,7 @@ import { User } from '../models/user.model';
 import { HttpRequest } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
-fdescribe('HttpConfigInterceptor', () => {
+describe('HttpConfigInterceptor', () => {
   let localStoreService: jasmine.SpyObj<LocalStoreService>;
   let interceptor: HttpConfigInterceptor;
   let httpMock: HttpTestingController;

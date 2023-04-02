@@ -5,7 +5,7 @@ export interface User {
   lname: string;
   phone: string;
   role: string;
-  token: string;
+  token?: string;
   isDeleted?: boolean;
   createdAt?: string;
   createdBy?: number;

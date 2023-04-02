@@ -9,19 +9,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  users: User[] = [];
+
   constructor(private userService: UserService) {
     this.getUserList();
   }
 
   getUserList() {
     this.userService.getUserList().subscribe((res: APIResponse<User[]>) => {
-      if (res.status == "SUCCESS") {
-        debugger;
-      } else {
-        debugger;
-      }
-    }, (err) => {
-      debugger;
+      if (res.status == "SUCCESS" && res.data) {
+        this.users = res.data; 
+      } 
     })
   }
 }

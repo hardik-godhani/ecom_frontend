@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class AuthGuard implements CanActivate {
 
 
   constructor(private localStore: LocalStoreService, private router: Router) {
@@ -25,10 +25,10 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   }
 
 
-  canActivateChild(
-    childRoute: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
-  }
+  // canActivateChild(
+  //   childRoute: ActivatedRouteSnapshot,
+  //   state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  //   return true;
+  // }
 
 }
